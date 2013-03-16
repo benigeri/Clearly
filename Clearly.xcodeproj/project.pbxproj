@@ -17,13 +17,13 @@
 		DD69502816F5046600A9FC5B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD69502716F5046600A9FC5B /* Default@2x.png */; };
 		DD69502A16F5046600A9FC5B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD69502916F5046600A9FC5B /* Default-568h@2x.png */; };
 		DD69502D16F5046600A9FC5B /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD69502B16F5046600A9FC5B /* MainStoryboard_iPhone.storyboard */; };
-		DD69503016F5046600A9FC5B /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD69502E16F5046600A9FC5B /* MainStoryboard_iPad.storyboard */; };
-		DD69503316F5046600A9FC5B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD69503216F5046600A9FC5B /* ViewController.m */; };
 		DD69503B16F5046600A9FC5B /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD69503A16F5046600A9FC5B /* SenTestingKit.framework */; };
 		DD69503C16F5046600A9FC5B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD69501316F5046600A9FC5B /* UIKit.framework */; };
 		DD69503D16F5046600A9FC5B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD69501516F5046600A9FC5B /* Foundation.framework */; };
 		DD69504516F5046600A9FC5B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD69504316F5046600A9FC5B /* InfoPlist.strings */; };
 		DD69504816F5046600A9FC5B /* ClearlyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DD69504716F5046600A9FC5B /* ClearlyTests.m */; };
+		DD69505616F5076B00A9FC5B /* GetLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD69505516F5076B00A9FC5B /* GetLocationViewController.m */; };
+		DD69505816F5092E00A9FC5B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD69505716F5092E00A9FC5B /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,15 +51,15 @@
 		DD69502716F5046600A9FC5B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		DD69502916F5046600A9FC5B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		DD69502C16F5046600A9FC5B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		DD69502F16F5046600A9FC5B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		DD69503116F5046600A9FC5B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		DD69503216F5046600A9FC5B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		DD69503916F5046600A9FC5B /* ClearlyTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClearlyTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD69503A16F5046600A9FC5B /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		DD69504216F5046600A9FC5B /* ClearlyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ClearlyTests-Info.plist"; sourceTree = "<group>"; };
 		DD69504416F5046600A9FC5B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DD69504616F5046600A9FC5B /* ClearlyTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClearlyTests.h; sourceTree = "<group>"; };
 		DD69504716F5046600A9FC5B /* ClearlyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClearlyTests.m; sourceTree = "<group>"; };
+		DD69505416F5076B00A9FC5B /* GetLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetLocationViewController.h; sourceTree = "<group>"; };
+		DD69505516F5076B00A9FC5B /* GetLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetLocationViewController.m; sourceTree = "<group>"; };
+		DD69505716F5092E00A9FC5B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD69505816F5092E00A9FC5B /* CoreLocation.framework in Frameworks */,
 				DD69501416F5046600A9FC5B /* UIKit.framework in Frameworks */,
 				DD69501616F5046600A9FC5B /* Foundation.framework in Frameworks */,
 				DD69501816F5046600A9FC5B /* CoreGraphics.framework in Frameworks */,
@@ -89,6 +90,7 @@
 		DD69500716F5046600A9FC5B = {
 			isa = PBXGroup;
 			children = (
+				DD69505716F5092E00A9FC5B /* CoreLocation.framework */,
 				DD69501916F5046600A9FC5B /* Clearly */,
 				DD69504016F5046600A9FC5B /* ClearlyTests */,
 				DD69501216F5046600A9FC5B /* Frameworks */,
@@ -119,12 +121,11 @@
 		DD69501916F5046600A9FC5B /* Clearly */ = {
 			isa = PBXGroup;
 			children = (
+				DD69505416F5076B00A9FC5B /* GetLocationViewController.h */,
+				DD69505516F5076B00A9FC5B /* GetLocationViewController.m */,
 				DD69502216F5046600A9FC5B /* AppDelegate.h */,
 				DD69502316F5046600A9FC5B /* AppDelegate.m */,
 				DD69502B16F5046600A9FC5B /* MainStoryboard_iPhone.storyboard */,
-				DD69502E16F5046600A9FC5B /* MainStoryboard_iPad.storyboard */,
-				DD69503116F5046600A9FC5B /* ViewController.h */,
-				DD69503216F5046600A9FC5B /* ViewController.m */,
 				DD69501A16F5046600A9FC5B /* Supporting Files */,
 			);
 			path = Clearly;
@@ -239,7 +240,6 @@
 				DD69502816F5046600A9FC5B /* Default@2x.png in Resources */,
 				DD69502A16F5046600A9FC5B /* Default-568h@2x.png in Resources */,
 				DD69502D16F5046600A9FC5B /* MainStoryboard_iPhone.storyboard in Resources */,
-				DD69503016F5046600A9FC5B /* MainStoryboard_iPad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +276,7 @@
 			files = (
 				DD69502016F5046600A9FC5B /* main.m in Sources */,
 				DD69502416F5046600A9FC5B /* AppDelegate.m in Sources */,
-				DD69503316F5046600A9FC5B /* ViewController.m in Sources */,
+				DD69505616F5076B00A9FC5B /* GetLocationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,14 +313,6 @@
 				DD69502C16F5046600A9FC5B /* en */,
 			);
 			name = MainStoryboard_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		DD69502E16F5046600A9FC5B /* MainStoryboard_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DD69502F16F5046600A9FC5B /* en */,
-			);
-			name = MainStoryboard_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 		DD69504316F5046600A9FC5B /* InfoPlist.strings */ = {
@@ -399,6 +391,7 @@
 				GCC_PREFIX_HEADER = "Clearly/Clearly-Prefix.pch";
 				INFOPLIST_FILE = "Clearly/Clearly-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -410,6 +403,7 @@
 				GCC_PREFIX_HEADER = "Clearly/Clearly-Prefix.pch";
 				INFOPLIST_FILE = "Clearly/Clearly-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
