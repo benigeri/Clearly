@@ -8,6 +8,7 @@
 
 #import "GetLocationViewController.h"
 #import <MapKit/MapKit.h>
+
 @interface GetLocationViewController ()
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLGeocoder *geocoder;
@@ -113,9 +114,11 @@
         if ([segue.identifier isEqualToString:@"weathersegue"]) {
             NSLog(@"SEGUEDD!");
             [self.navigationController setNavigationBarHidden:YES];
+            if ([segue.destinationViewController respondsToSelector:@selector(showWeather:)]) {
+                [segue.destinationViewController performSelector:@selector(showWeather:) withObject:self.placemark];
 //            if ([segue.destinationViewController respondsToSelector:@selector(setImageURL:)]) {
 //                NSURL *url = [FlickrFetcher urlForPhoto:self.photos[indexPath.row] format:FlickrPhotoFormatLarge];
-//                [segue.destinationViewController performSelector:@selector(setImageURL:) withObject:url];
+//
 //                [segue.destinationViewController setTitle:[self titleForRow:indexPath.row]];
 //                NSDictionary *photo = [self photos][indexPath.row];
 //                NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -128,6 +131,8 @@
 //                [defaults setObject:recentPhotos forKey:@"recentPhotos"];
 //                [defaults synchronize];
 //            }
+        
+            }
         }
     }
 }

@@ -27,6 +27,7 @@
 		DD69505E16F53C9500A9FC5B /* YahooWeatherAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = DD69505D16F53C9500A9FC5B /* YahooWeatherAPI.m */; };
 		DD69506016F53F4700A9FC5B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD69505F16F53F4700A9FC5B /* MapKit.framework */; };
 		DD69506216F548C100A9FC5B /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = DD69506116F548C100A9FC5B /* logo.png */; };
+		DD69506516F54E9800A9FC5B /* WeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD69506416F54E9800A9FC5B /* WeatherViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,8 @@
 		DD69505D16F53C9500A9FC5B /* YahooWeatherAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YahooWeatherAPI.m; sourceTree = "<group>"; };
 		DD69505F16F53F4700A9FC5B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		DD69506116F548C100A9FC5B /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		DD69506316F54E9800A9FC5B /* WeatherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherViewController.h; sourceTree = "<group>"; };
+		DD69506416F54E9800A9FC5B /* WeatherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +140,8 @@
 				DD69502216F5046600A9FC5B /* AppDelegate.h */,
 				DD69502316F5046600A9FC5B /* AppDelegate.m */,
 				DD69502B16F5046600A9FC5B /* MainStoryboard_iPhone.storyboard */,
+				DD69506316F54E9800A9FC5B /* WeatherViewController.h */,
+				DD69506416F54E9800A9FC5B /* WeatherViewController.m */,
 				DD69501A16F5046600A9FC5B /* Supporting Files */,
 			);
 			path = Clearly;
@@ -291,6 +296,7 @@
 				DD69502416F5046600A9FC5B /* AppDelegate.m in Sources */,
 				DD69505616F5076B00A9FC5B /* GetLocationViewController.m in Sources */,
 				DD69505E16F53C9500A9FC5B /* YahooWeatherAPI.m in Sources */,
+				DD69506516F54E9800A9FC5B /* WeatherViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -62,10 +62,10 @@
             </objects>
             <point key="canvasLocation" x="649" y="110"/>
         </scene>
-        <!--View Controller-->
+        <!--Weather View Controller-->
         <scene sceneID="X50-RQ-LiC">
             <objects>
-                <viewController id="wg5-ha-pjP" sceneMemberID="viewController">
+                <viewController id="wg5-ha-pjP" customClass="WeatherViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6kt-W2-2AP">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -81,6 +81,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Ox7-Bf-yj9"/>
+                    <connections>
+                        <outlet property="zipcodeLabel" destination="rbH-FM-7fS" id="1Tw-i4-B07"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="60y-P3-dcr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -116,6 +119,12 @@
                 <relationship kind="outlet" name="logo" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="longitudeLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="WeatherViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WeatherViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="zipcodeLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
     </classes>
