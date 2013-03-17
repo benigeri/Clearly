@@ -28,10 +28,13 @@
 @property (weak, nonatomic) NSDate *prevDate;
 @property (strong, nonatomic) NSDictionary *todayWeather;
 @property (strong, nonatomic) NSDictionary *prevWeather;
+@property (weak, nonatomic) IBOutlet UIButton *prevDateButton;
+@property (weak, nonatomic) IBOutlet UIButton *nextDateButton;
+@property (nonatomic) int prevCount;
 
 @end
 
-@implementation WeatherViewController 
+@implementation WeatherViewController
 
 - (void)showWeather:(CLPlacemark*) placemark
 {
@@ -42,7 +45,7 @@
 
 - (void) viewDidLoad {
     self.zipcodeLabel.text = self.placemark.postalCode;
-
+    self.prevCount = 5;
     [self fetchTodayWeather];
     
     [self fetchPrevWeather: [self prevDateByNumDays:-6]];
@@ -50,6 +53,22 @@
     [self updateUI];
 
 }
+- (IBAction)switchNextDate:(id)sender {
+ 
+    self.prevDate = [self prevDateByNumDays:- --self.prevCount];
+    [self fetchPrevWeather: self.prevDate];
+
+    [self updateUI];
+}
+
+- (IBAction)switchPrevDate:(id)sender {
+    
+    self.prevDate = [self prevDateByNumDays:- ++self.prevCount];
+    [self fetchPrevWeather: self.prevDate];
+    [self updateUI];
+    
+}
+
 
 - (void) updateUI {
     self.todayDateLabel.text = [self.todayWeather valueForKey:@"day"];
@@ -60,6 +79,12 @@
     self.yesterdayWindLabel.text = [self.prevWeather  valueForKey:@"windi"];
     //    self.yesterdayPrecipitationLabel.text = [yesterdayDictionary valueForKey:@"percipim"];
     self.yesterdayTempLabel.text = [self.prevWeather  valueForKey:@"tempi"];
+    
+    if (self.prevCount == 0) {
+        [self.nextDateButton setEnabled:NO];
+    } else {
+        [self.nextDateButton setEnabled:YES];
+    }
     
     [self updateClearlyWeather];
 }
@@ -123,9 +148,6 @@
         tempDesc = [NSString stringWithFormat:@"the same temperature as"];
     }
     
-    
-    
-
     return [NSString stringWithFormat:@"It's %@ %@.", tempDesc, [self generateDateDesc]];
 }
 

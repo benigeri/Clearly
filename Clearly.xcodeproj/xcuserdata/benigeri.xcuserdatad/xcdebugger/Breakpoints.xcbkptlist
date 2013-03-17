@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Clearly/GetLocationViewController.m"
-         timestampString = "385175785.951084"
+         timestampString = "385200928.313863"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "51"
-         endingLineNumber = "51"
+         startingLineNumber = "52"
+         endingLineNumber = "52"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Clearly/GetLocationViewController.m"
-         timestampString = "385175785.951084"
+         timestampString = "385200928.313863"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "116"
-         endingLineNumber = "116"
+         startingLineNumber = "117"
+         endingLineNumber = "117"
          landmarkName = "-prepareForSegue:sender:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -71,11 +71,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Clearly/WeatherViewController.m"
-         timestampString = "385199209.667125"
+         timestampString = "385201812.917132"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "76"
-         endingLineNumber = "76"
+         startingLineNumber = "101"
+         endingLineNumber = "101"
          landmarkName = "-updateClearlyWeather"
          landmarkType = "5">
       </FileBreakpoint>
@@ -84,11 +84,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Clearly/WeatherViewController.m"
-         timestampString = "385199215.433234"
+         timestampString = "385201812.917132"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "55"
-         endingLineNumber = "55"
+         startingLineNumber = "74"
+         endingLineNumber = "74"
          landmarkName = "-updateUI"
          landmarkType = "5">
       </FileBreakpoint>
@@ -97,11 +97,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Clearly/WeatherViewController.m"
-         timestampString = "385200439.449375"
+         timestampString = "385201812.917132"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "139"
-         endingLineNumber = "139"
+         startingLineNumber = "161"
+         endingLineNumber = "161"
          landmarkName = "-fetchTodayWeather"
          landmarkType = "5">
       </FileBreakpoint>
@@ -110,11 +110,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Clearly/WeatherViewController.m"
-         timestampString = "385200439.449375"
+         timestampString = "385201812.917132"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "149"
-         endingLineNumber = "149"
+         startingLineNumber = "171"
+         endingLineNumber = "171"
          landmarkName = "-fetchPrevWeather:"
          landmarkType = "5">
       </FileBreakpoint>
