@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12A269" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12A269" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -12,45 +12,10 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Latitude" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gnh-d5-gnd">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Longitude" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qeS-Ip-Ppo">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jjm-dh-5Id">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="For latitude val" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z3m-yb-lN1">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="187" id="GEL-CL-W3U"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="For longitude val" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r8X-HO-UN3">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="For address val" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="187" translatesAutoresizingMaskIntoConstraints="NO" id="2h1-DN-bcR">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="99" id="QDI-Ho-Nim"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HVl-FP-dlo">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HVl-FP-dlo">
+                                <rect key="frame" x="20" y="73" width="131" height="44"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Get my location">
+                                <state key="normal" title="Get location">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -61,37 +26,79 @@
                                     <action selector="getCurrentLocation:" destination="2" eventType="touchUpInside" id="ARL-oz-2Ac"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tJG-ev-ayh">
+                                <rect key="frame" x="169" y="73" width="131" height="44"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Get Weather">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="getWeather:" destination="2" eventType="touchUpInside" id="46b-er-e9C"/>
+                                    <segue destination="wg5-ha-pjP" kind="push" identifier="weathersegue" id="GPJ-R3-qL0"/>
+                                </connections>
+                            </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="ilE-r8-XgR">
+                                <rect key="frame" x="0.0" y="149" width="320" height="399"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                            </mapView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="MVj-Kc-PxK">
+                                <rect key="frame" x="24" y="20" width="272" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="jjm-dh-5Id" firstAttribute="top" secondItem="qeS-Ip-Ppo" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="9jU-52-DCg"/>
-                            <constraint firstAttribute="trailing" secondItem="r8X-HO-UN3" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Feg-Ta-Y8c"/>
-                            <constraint firstAttribute="trailing" secondItem="2h1-DN-bcR" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="HxE-Y1-rpy"/>
-                            <constraint firstItem="HVl-FP-dlo" firstAttribute="top" secondItem="2h1-DN-bcR" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Isf-BD-Le6"/>
-                            <constraint firstItem="r8X-HO-UN3" firstAttribute="leading" secondItem="z3m-yb-lN1" secondAttribute="leading" type="default" id="RL9-GC-HSr"/>
-                            <constraint firstItem="r8X-HO-UN3" firstAttribute="baseline" secondItem="qeS-Ip-Ppo" secondAttribute="baseline" type="default" id="UCl-e6-PVG"/>
-                            <constraint firstAttribute="trailing" secondItem="z3m-yb-lN1" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="aXI-fd-vBI"/>
-                            <constraint firstItem="qeS-Ip-Ppo" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="bGa-g5-YR1"/>
-                            <constraint firstItem="2h1-DN-bcR" firstAttribute="leading" secondItem="r8X-HO-UN3" secondAttribute="leading" type="default" id="d5u-pg-RCr"/>
-                            <constraint firstItem="jjm-dh-5Id" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="fQU-5A-LEq"/>
-                            <constraint firstItem="qeS-Ip-Ppo" firstAttribute="top" secondItem="Gnh-d5-gnd" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="ndT-uZ-PGU"/>
-                            <constraint firstItem="HVl-FP-dlo" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="qle-Uc-Tmh"/>
-                            <constraint firstItem="2h1-DN-bcR" firstAttribute="top" secondItem="r8X-HO-UN3" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="sQl-b7-NSF"/>
-                            <constraint firstItem="Gnh-d5-gnd" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="snP-Ua-xQb"/>
-                            <constraint firstItem="Gnh-d5-gnd" firstAttribute="top" secondItem="3" secondAttribute="top" constant="151" id="uFA-2N-Za8"/>
-                            <constraint firstItem="z3m-yb-lN1" firstAttribute="baseline" secondItem="Gnh-d5-gnd" secondAttribute="baseline" type="default" id="ybE-WJ-FY9"/>
-                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="addressLabel" destination="2h1-DN-bcR" id="Ays-L9-GLK"/>
-                        <outlet property="latitudeLabel" destination="z3m-yb-lN1" id="HJ7-lW-S7r"/>
-                        <outlet property="longitudeLabel" destination="r8X-HO-UN3" id="80D-8o-l5z"/>
+                        <outlet property="logo" destination="MVj-Kc-PxK" id="xwz-Fk-eXN"/>
+                        <outlet property="mapView" destination="ilE-r8-XgR" id="JVq-mH-Qfh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="X50-RQ-LiC">
+            <objects>
+                <viewController id="wg5-ha-pjP" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6kt-W2-2AP">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Weather!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rbH-FM-7fS">
+                                <rect key="frame" x="77" y="185" width="69" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ox7-Bf-yj9"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="60y-P3-dcr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="423" y="105"/>
+        </scene>
     </scenes>
+    <classes>
+        <class className="GetLocationViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GetLocationViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="getCurrentLocation:"/>
+                <relationship kind="action" name="getWeather:"/>
+                <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="latitudeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="logo" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="longitudeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
