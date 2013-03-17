@@ -43,16 +43,9 @@
 - (void) viewDidLoad {
     self.zipcodeLabel.text = self.placemark.postalCode;
 
-    NSCalendar *cal = [NSCalendar currentCalendar];
-    
-    NSDateComponents *components = [[NSDateComponents alloc] init];
-    [components setDay:-1];
-    
-    NSDate *yesterday = [cal dateByAddingComponents:components toDate:[NSDate date] options:0];
-
     [self fetchTodayWeather];
     
-    [self fetchPrevWeather:yesterday];
+    [self fetchPrevWeather: [self prevDateByNumDays:-6]];
 
     [self updateUI];
 
@@ -60,31 +53,78 @@
 
 - (void) updateUI {
     self.todayDateLabel.text = [self.todayWeather valueForKey:@"day"];
-    self.todayWindLabel.text = [self.todayWeather valueForKey:@"windm"];
+    self.todayWindLabel.text = [self.todayWeather valueForKey:@"windi"];
     //    self.todayPrecipitationLabel.text = [todayDictionary valueForKey:@"percipim"];
-    self.todayTempLabel.text = [self.todayWeather valueForKey:@"tempm"];
+    self.todayTempLabel.text = [self.todayWeather valueForKey:@"tempi"];
     self.yesterdayDateLabel.text = [self.prevWeather valueForKey:@"day"];
-    self.yesterdayWindLabel.text = [self.prevWeather  valueForKey:@"windm"];
+    self.yesterdayWindLabel.text = [self.prevWeather  valueForKey:@"windi"];
     //    self.yesterdayPrecipitationLabel.text = [yesterdayDictionary valueForKey:@"percipim"];
-    self.yesterdayTempLabel.text = [self.prevWeather  valueForKey:@"tempm"];
+    self.yesterdayTempLabel.text = [self.prevWeather  valueForKey:@"tempi"];
+    
+    [self updateClearlyWeather];
 }
 
-- (void) fetchTodayWeather {
+- (NSDate *) prevDateByNumDays:(int) n {
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    
+    NSDateComponents *components = [[NSDateComponents alloc] init];
+    [components setDay:n];
+    
+    return [cal dateByAddingComponents:components toDate:[NSDate date] options:0];
+}
+
+- (void) updateClearlyWeather {
+
+    NSInteger todayTemp = [[self.todayWeather valueForKey:@"tempi"] integerValue];
+    NSInteger prevTemp = [[self.prevWeather valueForKey:@"tempi"] integerValue];
+    NSLog(@"temps: %d, %d %d", todayTemp, prevTemp, prevTemp - todayTemp);
+    NSString *tempDesc;
+    if (todayTemp > prevTemp) {
+        tempDesc = [NSString stringWithFormat:@"%d°F warmer than", todayTemp - prevTemp];
+    } else if (todayTemp < prevTemp){
+        tempDesc = [NSString stringWithFormat:@"%d°F colder than",  prevTemp - todayTemp];
+    } else {
+        tempDesc = [NSString stringWithFormat:@"the same temperature as"];
+    }
+    
+    
+    
+    NSString *yesterdayString = [self dateToString: [self prevDateByNumDays:-5]];
+    NSString *dateDesc;
+    if ([[self dateToString:self.prevDate] isEqualToString:yesterdayString] ) {
+        dateDesc = @"yesterday";
+    } else {
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"EEEE MMMM d, YYYY"];
+        dateDesc = [dateFormat stringFromDate:self.prevDate];
+    }
+    
+    NSString *clearlyTemp = [NSString stringWithFormat:@"It's %@ %@.", tempDesc, dateDesc];
+    self.tempDifferenceLabel.text = clearlyTemp;
+
+}
+
+- (NSString *) dateToString:(NSDate *) date {
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"yyyyMMdd"];
+    return [dateFormat stringFromDate:date];
+
+}
+- (void) fetchTodayWeather {
+    NSDate *today = [self prevDateByNumDays:-2];
     
-    NSString *todayString = [dateFormat stringFromDate:[NSDate date]];
+
+    
+    NSString *todayString = [self dateToString:today];
+    NSLog(@"today string: %@", todayString);
     self.todayWeather = [WeatherUndergroundAPI getPastDate:todayString withZipCode:self.placemark.postalCode];
 }
 
 - (void) fetchPrevWeather:(NSDate *)prevDate {
     
     self.prevDate = prevDate;
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"yyyyMMdd"];
-
     
-    NSString *prevString = [dateFormat stringFromDate:self.prevDate];
+    NSString *prevString = [self dateToString:self.prevDate];
     self.prevWeather = [WeatherUndergroundAPI getPastDate:prevString withZipCode:self.placemark.postalCode];
 }
 
