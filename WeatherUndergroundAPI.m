@@ -15,13 +15,14 @@
 + (NSDictionary *)executeWeatherUndergroundFetch:(NSString *)query withZipCode:(NSString *) zipCode
 {
     query = [NSString stringWithFormat:@"%@%@/%@/q/%@.json", WUAPIPREFIX, WUKEYID, query, zipCode];
+    NSLog(@"query: %@", query);
     query = [query stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSLog(@"[%@ %@] sent %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), query);
+//    NSLog(@"[%@ %@] sent %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), query);
     NSData *jsonData = [[NSString stringWithContentsOfURL:[NSURL URLWithString:query] encoding:NSUTF8StringEncoding error:nil] dataUsingEncoding:NSUTF8StringEncoding];
     NSError *error = nil;
     NSDictionary *results = jsonData ? [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers|NSJSONReadingMutableLeaves error:&error] : nil;
     if (error) NSLog(@"[%@ %@] JSON error: %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), error.localizedDescription);
-    NSLog(@"[%@ %@] received %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), results);
+//    NSLog(@"[%@ %@] received %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), results);
 //    NSLog(@"Results: %@", results);
     return results;
     
@@ -31,25 +32,16 @@
     NSString *query = [NSString stringWithFormat:@"history_%@", date];
     NSDictionary *results = [WeatherUndergroundAPI executeWeatherUndergroundFetch:query withZipCode:zipCode];
     NSDictionary *weatherForDate = [results valueForKeyPath:@"history.dailysummary"];
-    NSLog(@"%@", weatherForDate);
+//    NSLog(@"%@", weatherForDate);
     NSMutableDictionary *weatherDictionary = [[NSMutableDictionary alloc] init];
-    NSDateComponents *comps = [[NSDateComponents alloc] init];
-    //    [NSInteger in
-    [comps setDay:[[weatherDictionary valueForKeyPath:@"date.mday"] intValue]];
-    [comps setMonth:[[weatherDictionary valueForKeyPath:@"date.mon"] intValue]];
-    [comps setYear:[[weatherDictionary valueForKeyPath:@"date.year"] intValue]];
-    NSCalendar *cal = [NSCalendar currentCalendar];
-    NSDate *day = [cal dateFromComponents:comps];
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"yyyymmdd"];
-    NSString *dateString = [dateFormat stringFromDate:day];
-    [weatherDictionary setObject:dateString forKey:@"day"];
-    [weatherDictionary setObject:[weatherForDate valueForKey:@"precipm"] forKey:@"precipm"];
-    [weatherDictionary setObject:[weatherForDate valueForKey:@"precipi"] forKey:@"precipi"];
-    [weatherDictionary setObject:[weatherForDate valueForKey:@"maxtempi"] forKey:@"tempi"];
-    [weatherDictionary setObject:[weatherForDate valueForKey:@"maxtempm"] forKey:@"tempm"];
-    [weatherDictionary setObject:[weatherForDate valueForKey:@"maxwsdi"] forKey:@"windi"];
-    [weatherDictionary setObject:[weatherForDate valueForKey:@"maxwsdm"] forKey:@"windm"];
+    [weatherDictionary setObject:date forKey:@"day"];
+    [weatherDictionary setObject:[[weatherForDate valueForKey:@"precipm"] objectAtIndex:0] forKey:@"precipm"];
+    [weatherDictionary setObject:[[weatherForDate valueForKey:@"precipi"] objectAtIndex:0] forKey:@"precipi"];
+    [weatherDictionary setObject:[[weatherForDate valueForKey:@"maxtempi"] objectAtIndex:0] forKey:@"tempi"];
+    [weatherDictionary setObject:[[weatherForDate valueForKey:@"maxtempm"] objectAtIndex:0] forKey:@"tempm"];
+    [weatherDictionary setObject:[[weatherForDate valueForKey:@"maxwspdi"] objectAtIndex:0] forKey:@"windi"];
+    [weatherDictionary setObject:[[weatherForDate valueForKey:@"maxwspdm"] objectAtIndex:0] forKey:@"windm"];
+
     return weatherDictionary;
 }
 
@@ -57,7 +49,7 @@
     NSString *query = [NSString stringWithFormat:@"forecast"];
     NSDictionary *results = [WeatherUndergroundAPI executeWeatherUndergroundFetch:query withZipCode:zipCode];
     NSDictionary *weatherForDate = [[results valueForKeyPath:@"forecast.simpleforecast.forecastday"] objectAtIndex:1];
-    NSLog(@"%@", weatherForDate);
+//    NSLog(@"%@", weatherForDate);
     NSMutableDictionary *weatherDictionary = [[NSMutableDictionary alloc] init];
     NSDateComponents *comps = [[NSDateComponents alloc] init];
     [comps setDay:[[weatherDictionary valueForKeyPath:@"date.day"] intValue]];
@@ -69,12 +61,13 @@
     [dateFormat setDateFormat:@"yyyymmdd"];
     NSString *dateString = [dateFormat stringFromDate:day];
     [weatherDictionary setObject:dateString forKey:@"day"];
-    [weatherDictionary setObject:[weatherForDate valueForKeyPath:@"qpf_allday.mm"] forKey:@"precipm"];
+    [weatherDictionary setObject:[[weatherForDate valueForKey:@"qpf_allday.mm"] object] forKey:@"precipm"];
     [weatherDictionary setObject:[weatherForDate valueForKeyPath:@"qpf_allday.in"] forKey:@"precipi"];
     [weatherDictionary setObject:[weatherForDate valueForKeyPath:@"fahrenheit"] forKey:@"tempi"];
     [weatherDictionary setObject:[weatherForDate valueForKeyPath:@"high.celcius"] forKey:@"tempm"];
     [weatherDictionary setObject:[weatherForDate valueForKeyPath:@"maxwind.mph"] forKey:@"windi"];
     [weatherDictionary setObject:[weatherForDate valueForKeyPath:@"maxwind.kph"] forKey:@"windm"];
+
     return weatherDictionary;
 
 
