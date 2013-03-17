@@ -12,7 +12,7 @@
 
 @implementation Location
 
-@dynamic zipCode;
-@dynamic pastWeather;
+@dynamic zipcode;
+@dynamic hasWeather;
 
 @end

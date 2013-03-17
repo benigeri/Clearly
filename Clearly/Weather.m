@@ -7,17 +7,21 @@
 //
 
 #import "Weather.h"
+#import "Location.h"
 
 
 @implementation Weather
 
-@dynamic date;
-@dynamic icon;
-@dynamic tempI;
-@dynamic windM;
-@dynamic tempF;
-@dynamic windI;
-@dynamic precipitation;
+@dynamic day;
+@dynamic tempm;
+@dynamic tempi;
+@dynamic precipm;
+@dynamic windm;
+@dynamic precipi;
+@dynamic windi;
+@dynamic iconname;
+@dynamic icondata;
+@dynamic unique;
 @dynamic forLocation;
 
 @end

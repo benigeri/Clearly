@@ -32,7 +32,22 @@
     NSDictionary *results = [WeatherUndergroundAPI executeWeatherUndergroundFetch:query withZipCode:zipCode];
     NSDictionary *weatherForDate = [results valueForKeyPath:@"history.dailysummary"];
     NSLog(@"%@", weatherForDate);
-    return weatherForDate;
+    NSMutableDictionary *weatherDictionary = [[NSMutableDictionary alloc] init];
+    NSDateComponents *comps = [[NSDateComponents alloc] init];
+    //    [NSInteger in
+    [comps setDay:[[weatherDictionary valueForKeyPath:@"date.mday"] intValue]];
+    [comps setMonth:[[weatherDictionary valueForKeyPath:@"date.mon"] intValue]];
+    [comps setYear:[[weatherDictionary valueForKeyPath:@"date.year"] intValue]];
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDate *day = [cal dateFromComponents:comps];
+    [weatherDictionary setObject:day forKey:@"day"];
+    [weatherDictionary setObject:[weatherForDate valueForKey:@"precipm"] forKey:@"precipm"];
+    [weatherDictionary setObject:[weatherForDate valueForKey:@"precipi"] forKey:@"precipi"];
+    [weatherDictionary setObject:[weatherForDate valueForKey:@"maxtempi"] forKey:@"tempi"];
+    [weatherDictionary setObject:[weatherForDate valueForKey:@"maxtempm"] forKey:@"tempm"];
+    [weatherDictionary setObject:[weatherForDate valueForKey:@"maxwsdi"] forKey:@"windi"];
+    [weatherDictionary setObject:[weatherForDate valueForKey:@"maxwsdm"] forKey:@"windm"];
+    return weatherDictionary;
 }
 
 + (NSDictionary *)getTomorrow:(NSString *) zipCode {
@@ -40,7 +55,21 @@
     NSDictionary *results = [WeatherUndergroundAPI executeWeatherUndergroundFetch:query withZipCode:zipCode];
     NSDictionary *weatherForDate = [[results valueForKeyPath:@"forecast.simpleforecast.forecastday"] objectAtIndex:1];
     NSLog(@"%@", weatherForDate);
-    return weatherForDate;
+    NSMutableDictionary *weatherDictionary = [[NSMutableDictionary alloc] init];
+    NSDateComponents *comps = [[NSDateComponents alloc] init];
+    [comps setDay:[[weatherDictionary valueForKeyPath:@"date.day"] intValue]];
+    [comps setMonth:[[weatherDictionary valueForKeyPath:@"date.month"] intValue]];
+    [comps setYear:[[weatherDictionary valueForKeyPath:@"date.year"] intValue]];
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDate *date = [cal dateFromComponents:comps];
+    [weatherDictionary setObject:date forKey:@"day"];
+    [weatherDictionary setObject:[weatherForDate valueForKeyPath:@"qpf_allday.mm"] forKey:@"precipm"];
+    [weatherDictionary setObject:[weatherForDate valueForKeyPath:@"qpf_allday.in"] forKey:@"precipi"];
+    [weatherDictionary setObject:[weatherForDate valueForKeyPath:@"fahrenheit"] forKey:@"tempi"];
+    [weatherDictionary setObject:[weatherForDate valueForKeyPath:@"high.celcius"] forKey:@"tempm"];
+    [weatherDictionary setObject:[weatherForDate valueForKeyPath:@"maxwind.mph"] forKey:@"windi"];
+    [weatherDictionary setObject:[weatherForDate valueForKeyPath:@"maxwind.kph"] forKey:@"windm"];
+    return weatherDictionary;
 
 
 }

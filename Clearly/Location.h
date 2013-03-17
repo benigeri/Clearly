@@ -13,15 +13,15 @@
 
 @interface Location : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * zipCode;
-@property (nonatomic, retain) NSSet *pastWeather;
+@property (nonatomic) int32_t zipcode;
+@property (nonatomic, retain) NSSet *hasWeather;
 @end
 
 @interface Location (CoreDataGeneratedAccessors)
 
-- (void)addPastWeatherObject:(Weather *)value;
-- (void)removePastWeatherObject:(Weather *)value;
-- (void)addPastWeather:(NSSet *)values;
-- (void)removePastWeather:(NSSet *)values;
+- (void)addHasWeatherObject:(Weather *)value;
+- (void)removeHasWeatherObject:(Weather *)value;
+- (void)addHasWeather:(NSSet *)values;
+- (void)removeHasWeather:(NSSet *)values;
 
 @end

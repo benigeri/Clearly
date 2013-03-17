@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="12A269" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Location" representedClassName="Location" syncable="YES">
+        <attribute name="zipcode" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="hasWeather" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Weather" inverseName="forLocation" inverseEntity="Weather" syncable="YES"/>
+    </entity>
+    <entity name="Weather" representedClassName="Weather" syncable="YES">
+        <attribute name="day" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="icondata" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="iconname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="precipi" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="precipm" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="tempi" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="tempm" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="unique" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="windi" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="windm" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="forLocation" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="hasWeather" inverseEntity="Location" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Weather" positionX="160" positionY="192" width="128" height="208"/>
+        <element name="Location" positionX="493" positionY="195" width="128" height="75"/>
+    </elements>
+</model>

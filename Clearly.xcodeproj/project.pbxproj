@@ -28,7 +28,12 @@
 		DD69506216F548C100A9FC5B /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = DD69506116F548C100A9FC5B /* logo.png */; };
 		DD69506516F54E9800A9FC5B /* WeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD69506416F54E9800A9FC5B /* WeatherViewController.m */; };
 		DD69506816F5616500A9FC5B /* WeatherUndergroundAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = DD69506716F5616500A9FC5B /* WeatherUndergroundAPI.m */; };
-		DD69506B16F5626500A9FC5B /* Clearly.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DD69506916F5626500A9FC5B /* Clearly.xcdatamodeld */; };
+		DD69508916F575D300A9FC5B /* Clearly.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DD69508716F575D300A9FC5B /* Clearly.xcdatamodeld */; };
+		DD69509716F576C700A9FC5B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD69509616F576C700A9FC5B /* CoreData.framework */; };
+		DD69509D16F578C500A9FC5B /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = DD69509C16F578C500A9FC5B /* Location.m */; };
+		DD6950A016F57A6700A9FC5B /* Location+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = DD69509F16F57A6700A9FC5B /* Location+Create.m */; };
+		DD6950A316F57A9500A9FC5B /* Weather+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6950A216F57A9500A9FC5B /* Weather+Create.m */; };
+		DD6950A616F57D9400A9FC5B /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6950A516F57D9300A9FC5B /* Weather.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,7 +76,16 @@
 		DD69506416F54E9800A9FC5B /* WeatherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherViewController.m; sourceTree = "<group>"; };
 		DD69506616F5616500A9FC5B /* WeatherUndergroundAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeatherUndergroundAPI.h; path = ../WeatherUndergroundAPI.h; sourceTree = "<group>"; };
 		DD69506716F5616500A9FC5B /* WeatherUndergroundAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeatherUndergroundAPI.m; path = ../WeatherUndergroundAPI.m; sourceTree = "<group>"; };
-		DD69506A16F5626500A9FC5B /* Clearly.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Clearly.xcdatamodel; sourceTree = "<group>"; };
+		DD69508816F575D300A9FC5B /* Clearly.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Clearly.xcdatamodel; sourceTree = "<group>"; };
+		DD69509616F576C700A9FC5B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		DD69509B16F578C500A9FC5B /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
+		DD69509C16F578C500A9FC5B /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
+		DD69509E16F57A6700A9FC5B /* Location+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Location+Create.h"; sourceTree = "<group>"; };
+		DD69509F16F57A6700A9FC5B /* Location+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Location+Create.m"; sourceTree = "<group>"; };
+		DD6950A116F57A9500A9FC5B /* Weather+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Weather+Create.h"; sourceTree = "<group>"; };
+		DD6950A216F57A9500A9FC5B /* Weather+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Weather+Create.m"; sourceTree = "<group>"; };
+		DD6950A416F57D9300A9FC5B /* Weather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weather.h; sourceTree = "<group>"; };
+		DD6950A516F57D9300A9FC5B /* Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weather.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD69509716F576C700A9FC5B /* CoreData.framework in Frameworks */,
 				DD69506016F53F4700A9FC5B /* MapKit.framework in Frameworks */,
 				DD69505816F5092E00A9FC5B /* CoreLocation.framework in Frameworks */,
 				DD69501416F5046600A9FC5B /* UIKit.framework in Frameworks */,
@@ -103,6 +118,7 @@
 		DD69500716F5046600A9FC5B = {
 			isa = PBXGroup;
 			children = (
+				DD69509616F576C700A9FC5B /* CoreData.framework */,
 				DD69505F16F53F4700A9FC5B /* MapKit.framework */,
 				DD69505716F5092E00A9FC5B /* CoreLocation.framework */,
 				DD69501916F5046600A9FC5B /* Clearly */,
@@ -135,7 +151,15 @@
 		DD69501916F5046600A9FC5B /* Clearly */ = {
 			isa = PBXGroup;
 			children = (
-				DD69506916F5626500A9FC5B /* Clearly.xcdatamodeld */,
+				DD69509B16F578C500A9FC5B /* Location.h */,
+				DD69509C16F578C500A9FC5B /* Location.m */,
+				DD69509E16F57A6700A9FC5B /* Location+Create.h */,
+				DD69509F16F57A6700A9FC5B /* Location+Create.m */,
+				DD6950A116F57A9500A9FC5B /* Weather+Create.h */,
+				DD6950A216F57A9500A9FC5B /* Weather+Create.m */,
+				DD69508716F575D300A9FC5B /* Clearly.xcdatamodeld */,
+				DD6950A416F57D9300A9FC5B /* Weather.h */,
+				DD6950A516F57D9300A9FC5B /* Weather.m */,
 				DD69506616F5616500A9FC5B /* WeatherUndergroundAPI.h */,
 				DD69506716F5616500A9FC5B /* WeatherUndergroundAPI.m */,
 				DD69505416F5076B00A9FC5B /* GetLocationViewController.h */,
@@ -300,7 +324,11 @@
 				DD69505616F5076B00A9FC5B /* GetLocationViewController.m in Sources */,
 				DD69506516F54E9800A9FC5B /* WeatherViewController.m in Sources */,
 				DD69506816F5616500A9FC5B /* WeatherUndergroundAPI.m in Sources */,
-				DD69506B16F5626500A9FC5B /* Clearly.xcdatamodeld in Sources */,
+				DD69508916F575D300A9FC5B /* Clearly.xcdatamodeld in Sources */,
+				DD69509D16F578C500A9FC5B /* Location.m in Sources */,
+				DD6950A016F57A6700A9FC5B /* Location+Create.m in Sources */,
+				DD6950A316F57A9500A9FC5B /* Weather+Create.m in Sources */,
+				DD6950A616F57D9400A9FC5B /* Weather.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,14 +525,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		DD69506916F5626500A9FC5B /* Clearly.xcdatamodeld */ = {
+		DD69508716F575D300A9FC5B /* Clearly.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				DD69506A16F5626500A9FC5B /* Clearly.xcdatamodel */,
+				DD69508816F575D300A9FC5B /* Clearly.xcdatamodel */,
 			);
-			currentVersion = DD69506A16F5626500A9FC5B /* Clearly.xcdatamodel */;
+			currentVersion = DD69508816F575D300A9FC5B /* Clearly.xcdatamodel */;
 			path = Clearly.xcdatamodeld;
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */

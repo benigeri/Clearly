@@ -9,9 +9,7 @@
 #import "Location.h"
 
 @interface Location (Create)
-
 + (Location *)locationWithZipCode:(NSInteger *)zipcode
            inManagedObjectContext:(NSManagedObjectContext *) context;
-
 
 @end
