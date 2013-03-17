@@ -71,11 +71,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Clearly/WeatherViewController.m"
-         timestampString = "385201812.917132"
+         timestampString = "385203768.616373"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "101"
-         endingLineNumber = "101"
+         startingLineNumber = "139"
+         endingLineNumber = "139"
          landmarkName = "-updateClearlyWeather"
          landmarkType = "5">
       </FileBreakpoint>
@@ -84,11 +84,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Clearly/WeatherViewController.m"
-         timestampString = "385201812.917132"
+         timestampString = "385203564.790773"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "74"
-         endingLineNumber = "74"
+         startingLineNumber = "108"
+         endingLineNumber = "108"
          landmarkName = "-updateUI"
          landmarkType = "5">
       </FileBreakpoint>
@@ -97,11 +97,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Clearly/WeatherViewController.m"
-         timestampString = "385201812.917132"
+         timestampString = "385203768.616373"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "161"
-         endingLineNumber = "161"
+         startingLineNumber = "203"
+         endingLineNumber = "203"
          landmarkName = "-fetchTodayWeather"
          landmarkType = "5">
       </FileBreakpoint>
@@ -110,11 +110,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Clearly/WeatherViewController.m"
-         timestampString = "385201812.917132"
+         timestampString = "385203768.616373"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "171"
-         endingLineNumber = "171"
+         startingLineNumber = "213"
+         endingLineNumber = "213"
          landmarkName = "-fetchPrevWeather:"
          landmarkType = "5">
       </FileBreakpoint>

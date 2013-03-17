@@ -31,6 +31,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *prevDateButton;
 @property (weak, nonatomic) IBOutlet UIButton *nextDateButton;
 @property (nonatomic) int prevCount;
+@property (weak, nonatomic) UIColor *background;
 
 @end
 
@@ -44,40 +45,77 @@
 }
 
 - (void) viewDidLoad {
+    // Add swipeGestures
+    UISwipeGestureRecognizer *oneFingerSwipeLeft = [[UISwipeGestureRecognizer alloc]
+                                                     initWithTarget:self
+                                                     action:@selector(oneFingerSwipeLeft:)];
+    [oneFingerSwipeLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
+    [[self view] addGestureRecognizer:oneFingerSwipeLeft];
+    
+    UISwipeGestureRecognizer *oneFingerSwipeRight = [[UISwipeGestureRecognizer alloc]
+                                                      initWithTarget:self
+                                                      action:@selector(oneFingerSwipeRight:)] ;
+    [oneFingerSwipeRight setDirection:UISwipeGestureRecognizerDirectionRight];
+    [[self view] addGestureRecognizer:oneFingerSwipeRight];
+    
+    
     self.zipcodeLabel.text = self.placemark.postalCode;
-    self.prevCount = 5;
+    self.prevCount = 3;
     [self fetchTodayWeather];
     
-    [self fetchPrevWeather: [self prevDateByNumDays:-6]];
+    [self fetchPrevWeather: [self prevDateByNumDays:-5]];
 
     [self updateUI];
 
 }
-- (IBAction)switchNextDate:(id)sender {
- 
+
+- (void)oneFingerSwipeLeft:(UITapGestureRecognizer *)recognizer {
+    [self changeDateBackward];
+}
+
+- (void)oneFingerSwipeRight:(UITapGestureRecognizer *)recognizer {
+    [self changeDateForward];
+}
+
+- (void) changeDateForward {
     self.prevDate = [self prevDateByNumDays:- --self.prevCount];
     [self fetchPrevWeather: self.prevDate];
-
+    
     [self updateUI];
 }
 
-- (IBAction)switchPrevDate:(id)sender {
-    
+- (void) changeDateBackward {
     self.prevDate = [self prevDateByNumDays:- ++self.prevCount];
     [self fetchPrevWeather: self.prevDate];
     [self updateUI];
     
 }
 
+- (IBAction)switchNextDate:(id)sender {
+ 
+    [self changeDateForward];
+}
+
+- (IBAction)switchPrevDate:(id)sender {
+    
+    [self changeDateBackward];
+
+}
+
 
 - (void) updateUI {
+   
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.view.backgroundColor = self.background;
+    });
+    
+    [self updateClearlyWeather];
+    
     self.todayDateLabel.text = [self.todayWeather valueForKey:@"day"];
     self.todayWindLabel.text = [self.todayWeather valueForKey:@"windi"];
-    //    self.todayPrecipitationLabel.text = [todayDictionary valueForKey:@"percipim"];
     self.todayTempLabel.text = [self.todayWeather valueForKey:@"tempi"];
     self.yesterdayDateLabel.text = [self.prevWeather valueForKey:@"day"];
     self.yesterdayWindLabel.text = [self.prevWeather  valueForKey:@"windi"];
-    //    self.yesterdayPrecipitationLabel.text = [yesterdayDictionary valueForKey:@"percipim"];
     self.yesterdayTempLabel.text = [self.prevWeather  valueForKey:@"tempi"];
     
     if (self.prevCount == 0) {
@@ -86,7 +124,7 @@
         [self.nextDateButton setEnabled:YES];
     }
     
-    [self updateClearlyWeather];
+
 }
 
 - (NSDate *) prevDateByNumDays:(int) n {
@@ -142,10 +180,13 @@
     NSString *tempDesc;
     if (todayTemp > prevTemp) {
         tempDesc = [NSString stringWithFormat:@"%d°F warmer than", todayTemp - prevTemp];
+        self.background = [UIColor redColor];
     } else if (todayTemp < prevTemp){
         tempDesc = [NSString stringWithFormat:@"%d°F colder than",  prevTemp - todayTemp];
+        self.background = [UIColor blueColor];
     } else {
         tempDesc = [NSString stringWithFormat:@"the same temperature as"];
+        self.background = [UIColor greenColor];
     }
     
     return [NSString stringWithFormat:@"It's %@ %@.", tempDesc, [self generateDateDesc]];
@@ -157,6 +198,7 @@
     return [dateFormat stringFromDate:date];
 
 }
+
 - (void) fetchTodayWeather {
     NSDate *today = [self prevDateByNumDays:-2];
     
