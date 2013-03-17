@@ -25,9 +25,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *yesterdayPrecipitationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tempDifferenceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *windDifferenceLabel;
-@property (weak, nonatomic) NSString prevDate;
+@property (weak, nonatomic) NSDate *prevDate;
 @property (strong, nonatomic) NSDictionary *todayWeather;
-@property (strong, nonatomic) NSDictionary *yesterdayWeather;
+@property (strong, nonatomic) NSDictionary *prevWeather;
 
 @end
 
@@ -42,32 +42,50 @@
 
 - (void) viewDidLoad {
     self.zipcodeLabel.text = self.placemark.postalCode;
-    NSCalendar *cal = [NSCalendar currentCalendar];
 
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    
+    NSDateComponents *components = [[NSDateComponents alloc] init];
+    [components setDay:-1];
+    
+    NSDate *yesterday = [cal dateByAddingComponents:components toDate:[NSDate date] options:0];
+
+    [self fetchTodayWeather];
+    
+    [self fetchPrevWeather:yesterday];
+
+    [self updateUI];
+
+}
+
+- (void) updateUI {
+    self.todayDateLabel.text = [self.todayWeather valueForKey:@"day"];
+    self.todayWindLabel.text = [self.todayWeather valueForKey:@"windm"];
+    //    self.todayPrecipitationLabel.text = [todayDictionary valueForKey:@"percipim"];
+    self.todayTempLabel.text = [self.todayWeather valueForKey:@"tempm"];
+    self.yesterdayDateLabel.text = [self.prevWeather valueForKey:@"day"];
+    self.yesterdayWindLabel.text = [self.prevWeather  valueForKey:@"windm"];
+    //    self.yesterdayPrecipitationLabel.text = [yesterdayDictionary valueForKey:@"percipim"];
+    self.yesterdayTempLabel.text = [self.prevWeather  valueForKey:@"tempm"];
+}
+
+- (void) fetchTodayWeather {
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"yyyyMMdd"];
     
     NSString *todayString = [dateFormat stringFromDate:[NSDate date]];
-    NSDateComponents *components = [[NSDateComponents alloc] init];
-    [components setDay:-1];
-    NSDate *yesterday = [cal dateByAddingComponents:components toDate:[NSDate date] options:0];
+    self.todayWeather = [WeatherUndergroundAPI getPastDate:todayString withZipCode:self.placemark.postalCode];
+}
 
-    NSString *yesterdayString = [dateFormat stringFromDate:yesterday];
-    NSLog(@"yesterday string; %@", yesterdayString);
-    NSDictionary *todayDictionary = [WeatherUndergroundAPI getPastDate:todayString withZipCode:self.placemark.postalCode];
-    NSDictionary *yesterdayDictionary = [WeatherUndergroundAPI getPastDate:yesterdayString withZipCode:self.placemark.postalCode];
-
-    NSLog(@"yesterday!!!!:%@", yesterdayDictionary);;
+- (void) fetchPrevWeather:(NSDate *)prevDate {
     
-    self.todayDateLabel.text = [todayDictionary valueForKey:@"day"];
-    self.todayWindLabel.text = [todayDictionary valueForKey:@"windm"];
-//    self.todayPrecipitationLabel.text = [todayDictionary valueForKey:@"percipim"];
-    self.todayTempLabel.text = [todayDictionary valueForKey:@"tempm"];
-    self.yesterdayDateLabel.text = [yesterdayDictionary valueForKey:@"day"];
-    self.yesterdayWindLabel.text = [yesterdayDictionary valueForKey:@"windm"];
-//    self.yesterdayPrecipitationLabel.text = [yesterdayDictionary valueForKey:@"percipim"];
-    self.yesterdayTempLabel.text = [yesterdayDictionary valueForKey:@"tempm"];
+    self.prevDate = prevDate;
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyyMMdd"];
 
+    
+    NSString *prevString = [dateFormat stringFromDate:self.prevDate];
+    self.prevWeather = [WeatherUndergroundAPI getPastDate:prevString withZipCode:self.placemark.postalCode];
 }
 
 
