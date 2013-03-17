@@ -24,10 +24,13 @@
 		DD69504816F5046600A9FC5B /* ClearlyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DD69504716F5046600A9FC5B /* ClearlyTests.m */; };
 		DD69505616F5076B00A9FC5B /* GetLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD69505516F5076B00A9FC5B /* GetLocationViewController.m */; };
 		DD69505816F5092E00A9FC5B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD69505716F5092E00A9FC5B /* CoreLocation.framework */; };
-		DD69505E16F53C9500A9FC5B /* YahooWeatherAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = DD69505D16F53C9500A9FC5B /* YahooWeatherAPI.m */; };
 		DD69506016F53F4700A9FC5B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD69505F16F53F4700A9FC5B /* MapKit.framework */; };
 		DD69506216F548C100A9FC5B /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = DD69506116F548C100A9FC5B /* logo.png */; };
 		DD69506516F54E9800A9FC5B /* WeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD69506416F54E9800A9FC5B /* WeatherViewController.m */; };
+		DD69506816F5616500A9FC5B /* WeatherUndergroundAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = DD69506716F5616500A9FC5B /* WeatherUndergroundAPI.m */; };
+		DD69506B16F5626500A9FC5B /* Clearly.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DD69506916F5626500A9FC5B /* Clearly.xcdatamodeld */; };
+		DD69506E16F565B600A9FC5B /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = DD69506D16F565B600A9FC5B /* Weather.m */; };
+		DD69507116F565E000A9FC5B /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = DD69507016F565E000A9FC5B /* Location.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,12 +67,17 @@
 		DD69505416F5076B00A9FC5B /* GetLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetLocationViewController.h; sourceTree = "<group>"; };
 		DD69505516F5076B00A9FC5B /* GetLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetLocationViewController.m; sourceTree = "<group>"; };
 		DD69505716F5092E00A9FC5B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		DD69505C16F53C9500A9FC5B /* YahooWeatherAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YahooWeatherAPI.h; sourceTree = "<group>"; };
-		DD69505D16F53C9500A9FC5B /* YahooWeatherAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YahooWeatherAPI.m; sourceTree = "<group>"; };
 		DD69505F16F53F4700A9FC5B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		DD69506116F548C100A9FC5B /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		DD69506316F54E9800A9FC5B /* WeatherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherViewController.h; sourceTree = "<group>"; };
 		DD69506416F54E9800A9FC5B /* WeatherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherViewController.m; sourceTree = "<group>"; };
+		DD69506616F5616500A9FC5B /* WeatherUndergroundAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeatherUndergroundAPI.h; path = ../WeatherUndergroundAPI.h; sourceTree = "<group>"; };
+		DD69506716F5616500A9FC5B /* WeatherUndergroundAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeatherUndergroundAPI.m; path = ../WeatherUndergroundAPI.m; sourceTree = "<group>"; };
+		DD69506A16F5626500A9FC5B /* Clearly.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Clearly.xcdatamodel; sourceTree = "<group>"; };
+		DD69506C16F565B600A9FC5B /* Weather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Weather.h; path = ../Weather.h; sourceTree = "<group>"; };
+		DD69506D16F565B600A9FC5B /* Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Weather.m; path = ../Weather.m; sourceTree = "<group>"; };
+		DD69506F16F565E000A9FC5B /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
+		DD69507016F565E000A9FC5B /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,8 +141,13 @@
 		DD69501916F5046600A9FC5B /* Clearly */ = {
 			isa = PBXGroup;
 			children = (
-				DD69505C16F53C9500A9FC5B /* YahooWeatherAPI.h */,
-				DD69505D16F53C9500A9FC5B /* YahooWeatherAPI.m */,
+				DD69506916F5626500A9FC5B /* Clearly.xcdatamodeld */,
+				DD69506F16F565E000A9FC5B /* Location.h */,
+				DD69507016F565E000A9FC5B /* Location.m */,
+				DD69506C16F565B600A9FC5B /* Weather.h */,
+				DD69506D16F565B600A9FC5B /* Weather.m */,
+				DD69506616F5616500A9FC5B /* WeatherUndergroundAPI.h */,
+				DD69506716F5616500A9FC5B /* WeatherUndergroundAPI.m */,
 				DD69505416F5076B00A9FC5B /* GetLocationViewController.h */,
 				DD69505516F5076B00A9FC5B /* GetLocationViewController.m */,
 				DD69502216F5046600A9FC5B /* AppDelegate.h */,
@@ -295,8 +308,11 @@
 				DD69502016F5046600A9FC5B /* main.m in Sources */,
 				DD69502416F5046600A9FC5B /* AppDelegate.m in Sources */,
 				DD69505616F5076B00A9FC5B /* GetLocationViewController.m in Sources */,
-				DD69505E16F53C9500A9FC5B /* YahooWeatherAPI.m in Sources */,
 				DD69506516F54E9800A9FC5B /* WeatherViewController.m in Sources */,
+				DD69506816F5616500A9FC5B /* WeatherUndergroundAPI.m in Sources */,
+				DD69506B16F5626500A9FC5B /* Clearly.xcdatamodeld in Sources */,
+				DD69506E16F565B600A9FC5B /* Weather.m in Sources */,
+				DD69507116F565E000A9FC5B /* Location.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,6 +507,19 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DD69506916F5626500A9FC5B /* Clearly.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DD69506A16F5626500A9FC5B /* Clearly.xcdatamodel */,
+			);
+			currentVersion = DD69506A16F5626500A9FC5B /* Clearly.xcdatamodel */;
+			path = Clearly.xcdatamodeld;
+			sourceTree = SOURCE_ROOT;
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DD69500816F5046600A9FC5B /* Project object */;
 }
