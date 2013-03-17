@@ -33,7 +33,7 @@
 		DD69509D16F578C500A9FC5B /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = DD69509C16F578C500A9FC5B /* Location.m */; };
 		DD6950A016F57A6700A9FC5B /* Location+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = DD69509F16F57A6700A9FC5B /* Location+Create.m */; };
 		DD6950A316F57A9500A9FC5B /* Weather+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6950A216F57A9500A9FC5B /* Weather+Create.m */; };
-		DD6950A616F57D9400A9FC5B /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6950A516F57D9300A9FC5B /* Weather.m */; };
+		DD6950A916F58A2100A9FC5B /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6950A816F58A2100A9FC5B /* Weather.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,8 +84,8 @@
 		DD69509F16F57A6700A9FC5B /* Location+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Location+Create.m"; sourceTree = "<group>"; };
 		DD6950A116F57A9500A9FC5B /* Weather+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Weather+Create.h"; sourceTree = "<group>"; };
 		DD6950A216F57A9500A9FC5B /* Weather+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Weather+Create.m"; sourceTree = "<group>"; };
-		DD6950A416F57D9300A9FC5B /* Weather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weather.h; sourceTree = "<group>"; };
-		DD6950A516F57D9300A9FC5B /* Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weather.m; sourceTree = "<group>"; };
+		DD6950A716F58A2000A9FC5B /* Weather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weather.h; sourceTree = "<group>"; };
+		DD6950A816F58A2100A9FC5B /* Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weather.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,9 +157,9 @@
 				DD69509F16F57A6700A9FC5B /* Location+Create.m */,
 				DD6950A116F57A9500A9FC5B /* Weather+Create.h */,
 				DD6950A216F57A9500A9FC5B /* Weather+Create.m */,
+				DD6950A716F58A2000A9FC5B /* Weather.h */,
+				DD6950A816F58A2100A9FC5B /* Weather.m */,
 				DD69508716F575D300A9FC5B /* Clearly.xcdatamodeld */,
-				DD6950A416F57D9300A9FC5B /* Weather.h */,
-				DD6950A516F57D9300A9FC5B /* Weather.m */,
 				DD69506616F5616500A9FC5B /* WeatherUndergroundAPI.h */,
 				DD69506716F5616500A9FC5B /* WeatherUndergroundAPI.m */,
 				DD69505416F5076B00A9FC5B /* GetLocationViewController.h */,
@@ -328,7 +328,7 @@
 				DD69509D16F578C500A9FC5B /* Location.m in Sources */,
 				DD6950A016F57A6700A9FC5B /* Location+Create.m in Sources */,
 				DD6950A316F57A9500A9FC5B /* Weather+Create.m in Sources */,
-				DD6950A616F57D9400A9FC5B /* Weather.m in Sources */,
+				DD6950A916F58A2100A9FC5B /* Weather.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -40,7 +40,10 @@
     [comps setYear:[[weatherDictionary valueForKeyPath:@"date.year"] intValue]];
     NSCalendar *cal = [NSCalendar currentCalendar];
     NSDate *day = [cal dateFromComponents:comps];
-    [weatherDictionary setObject:day forKey:@"day"];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyymmdd"];
+    NSString *dateString = [dateFormat stringFromDate:day];
+    [weatherDictionary setObject:dateString forKey:@"day"];
     [weatherDictionary setObject:[weatherForDate valueForKey:@"precipm"] forKey:@"precipm"];
     [weatherDictionary setObject:[weatherForDate valueForKey:@"precipi"] forKey:@"precipi"];
     [weatherDictionary setObject:[weatherForDate valueForKey:@"maxtempi"] forKey:@"tempi"];
@@ -61,8 +64,11 @@
     [comps setMonth:[[weatherDictionary valueForKeyPath:@"date.month"] intValue]];
     [comps setYear:[[weatherDictionary valueForKeyPath:@"date.year"] intValue]];
     NSCalendar *cal = [NSCalendar currentCalendar];
-    NSDate *date = [cal dateFromComponents:comps];
-    [weatherDictionary setObject:date forKey:@"day"];
+    NSDate *day = [cal dateFromComponents:comps];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyymmdd"];
+    NSString *dateString = [dateFormat stringFromDate:day];
+    [weatherDictionary setObject:dateString forKey:@"day"];
     [weatherDictionary setObject:[weatherForDate valueForKeyPath:@"qpf_allday.mm"] forKey:@"precipm"];
     [weatherDictionary setObject:[weatherForDate valueForKeyPath:@"qpf_allday.in"] forKey:@"precipi"];
     [weatherDictionary setObject:[weatherForDate valueForKeyPath:@"fahrenheit"] forKey:@"tempi"];

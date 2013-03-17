@@ -19,8 +19,6 @@
 @dynamic windm;
 @dynamic precipi;
 @dynamic windi;
-@dynamic iconname;
-@dynamic icondata;
 @dynamic unique;
 @dynamic forLocation;
 
