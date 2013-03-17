@@ -10,6 +10,11 @@
 
 
 #define WUKEYID @"db4e0f68f60312d4"
+#define WUAPIPREFIX @"http://api.wunderground.com/api/"
+
 @interface WeatherUndergroundAPI : NSObject
++ (NSDictionary *)executeWeatherUndergroundFetch:(NSString *)query withZipCode:(NSString *) zipCode;
++ (NSDictionary *)getPastDate:(NSString *)date withZipCode:(NSString *) zipCode;
++ (NSDictionary *)getTomorrow:(NSString *) zipCode;
 
 @end

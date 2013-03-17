@@ -8,6 +8,7 @@
 
 #import "WeatherViewController.h"
 #import <MapKit/MapKit.h>
+#import "WeatherUndergroundAPI.h"
 
 @interface WeatherViewController() 
 
@@ -27,6 +28,7 @@
 
 - (void) viewDidLoad {
     self.zipcodeLabel.text = self.placemark.postalCode;
+    [WeatherUndergroundAPI   getTomorrow:@"94305"];
 
 }
 @end
