@@ -75,6 +75,42 @@
 
 - (void) updateClearlyWeather {
 
+    self.tempDifferenceLabel.text = [self generateTempDescription];
+    self.windDifferenceLabel.text = [self generateWindDescription];
+
+}
+
+- (NSString *) generateWindDescription {
+    NSInteger todayWind = [[self.todayWeather valueForKey:@"windi"] integerValue];
+    NSInteger prevWind = [[self.prevWeather valueForKey:@"windi"] integerValue];
+    NSString *windDesc;
+
+    if (todayWind > prevWind) {
+        windDesc = [NSString stringWithFormat:@"%dmph stronger than", todayWind - prevWind];
+    } else if (todayWind < prevWind){
+        windDesc = [NSString stringWithFormat:@"%dmph weaker than",  prevWind - todayWind];
+    } else {
+        windDesc = [NSString stringWithFormat:@"the same as"];
+    }
+    
+    return [NSString stringWithFormat:@"Today's wind is %@ %@.", windDesc, [self generateDateDesc]];
+
+}
+
+- (NSString *) generateDateDesc {
+    NSString *yesterdayString = [self dateToString: [self prevDateByNumDays:-5]];
+    NSString *dateDesc;
+    if ([[self dateToString:self.prevDate] isEqualToString:yesterdayString] ) {
+        dateDesc = @"yesterday";
+    } else {
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"EEEE MMMM d, YYYY"];
+        dateDesc = [dateFormat stringFromDate:self.prevDate];
+    }
+    return dateDesc;
+    
+}
+- (NSString *) generateTempDescription {
     NSInteger todayTemp = [[self.todayWeather valueForKey:@"tempi"] integerValue];
     NSInteger prevTemp = [[self.prevWeather valueForKey:@"tempi"] integerValue];
     NSLog(@"temps: %d, %d %d", todayTemp, prevTemp, prevTemp - todayTemp);
@@ -89,19 +125,8 @@
     
     
     
-    NSString *yesterdayString = [self dateToString: [self prevDateByNumDays:-5]];
-    NSString *dateDesc;
-    if ([[self dateToString:self.prevDate] isEqualToString:yesterdayString] ) {
-        dateDesc = @"yesterday";
-    } else {
-        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-        [dateFormat setDateFormat:@"EEEE MMMM d, YYYY"];
-        dateDesc = [dateFormat stringFromDate:self.prevDate];
-    }
-    
-    NSString *clearlyTemp = [NSString stringWithFormat:@"It's %@ %@.", tempDesc, dateDesc];
-    self.tempDifferenceLabel.text = clearlyTemp;
 
+    return [NSString stringWithFormat:@"It's %@ %@.", tempDesc, [self generateDateDesc]];
 }
 
 - (NSString *) dateToString:(NSDate *) date {
