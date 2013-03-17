@@ -44,6 +44,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.navigationController setNavigationBarHidden:YES];
+
     // Do any additional setup after loading the view, typically from a nib.
     [self.logo setImage:[UIImage imageNamed:@"logo.png"]];
     self.locationManager = [[CLLocationManager alloc] init];
@@ -98,13 +100,37 @@
     } ];
     CLLocationDistance visibleDistance = 10000; // 100 kilometers
 
+    mapView.showsUserLocation=YES;
 
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(currentLocation.coordinate, visibleDistance, visibleDistance);
-    [self.mapView setRegion:region animated:YES];
+    [mapView setRegion:region animated:YES];
     
 }
 
-
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([sender isKindOfClass:[UIButton class]]) {
+        if ([segue.identifier isEqualToString:@"weathersegue"]) {
+            NSLog(@"SEGUEDD!");
+            [self.navigationController setNavigationBarHidden:YES];
+//            if ([segue.destinationViewController respondsToSelector:@selector(setImageURL:)]) {
+//                NSURL *url = [FlickrFetcher urlForPhoto:self.photos[indexPath.row] format:FlickrPhotoFormatLarge];
+//                [segue.destinationViewController performSelector:@selector(setImageURL:) withObject:url];
+//                [segue.destinationViewController setTitle:[self titleForRow:indexPath.row]];
+//                NSDictionary *photo = [self photos][indexPath.row];
+//                NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//                NSMutableArray *recentPhotos = [[NSMutableArray alloc] initWithArray:[defaults arrayForKey:@"recentPhotos"]];
+//                if ([recentPhotos containsObject:photo]){
+//                    [recentPhotos removeObject:photo];
+//                }
+//                
+//                [recentPhotos insertObject:photo atIndex:0];
+//                [defaults setObject:recentPhotos forKey:@"recentPhotos"];
+//                [defaults synchronize];
+//            }
+        }
+    }
+}
 
 @synthesize mapView ;
 
