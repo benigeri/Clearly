@@ -59,11 +59,14 @@
     [[self view] addGestureRecognizer:oneFingerSwipeRight];
     
     
-    self.zipcodeLabel.text = self.placemark.postalCode;
-    self.prevCount = 3;
-    [self fetchTodayWeather];
-    
-    [self fetchPrevWeather: [self prevDateByNumDays:-5]];
+    self.zipcodeLabel.text = self.placemark.locality;
+    [self.zipcodeLabel setFont:[UIFont fontWithName:@"GillSans-Light" size:31]];
+    [self.zipcodeLabel setTextColor:[UIColor whiteColor]];
+
+    self.prevCount = 2;
+    [self fetchTodayWeather];    
+
+    [self fetchPrevWeather: [self prevDateByNumDays:-2]];
 
     [self updateUI];
 
@@ -111,17 +114,30 @@
     
     [self updateClearlyWeather];
     
-    self.todayDateLabel.text = [self.todayWeather valueForKey:@"day"];
+    self.todayDateLabel.text = @"Today";
+    [self.todayDateLabel setFont:[UIFont fontWithName:@"GillSans-Light" size:17]];
+    [self.todayDateLabel setTextColor:[UIColor whiteColor]];
     self.todayWindLabel.text = [self.todayWeather valueForKey:@"windi"];
+    [self.todayWindLabel setFont:[UIFont fontWithName:@"GillSans-Light" size:17]];
+    [self.todayWindLabel setTextColor:[UIColor whiteColor]];
     self.todayTempLabel.text = [self.todayWeather valueForKey:@"tempi"];
-    self.yesterdayDateLabel.text = [self.prevWeather valueForKey:@"day"];
+    [self.todayTempLabel setFont:[UIFont fontWithName:@"GillSans-Light" size:17]];
+    [self.todayTempLabel setTextColor:[UIColor whiteColor]];
+    self.yesterdayDateLabel.text = [self generateDateDesc];
+    [self.yesterdayDateLabel setFont:[UIFont fontWithName:@"GillSans-Light" size:17]];
+    [self.yesterdayDateLabel setTextColor:[UIColor whiteColor]];
     self.yesterdayWindLabel.text = [self.prevWeather  valueForKey:@"windi"];
+    [self.yesterdayWindLabel setFont:[UIFont fontWithName:@"GillSans-Light" size:17]];
+    [self.yesterdayWindLabel setTextColor:[UIColor whiteColor]];
     self.yesterdayTempLabel.text = [self.prevWeather  valueForKey:@"tempi"];
+    [self.yesterdayTempLabel setFont:[UIFont fontWithName:@"GillSans-Light" size:17]];
+    [self.yesterdayTempLabel setTextColor:[UIColor whiteColor]];
     
-    if (self.prevCount == 0) {
-        [self.nextDateButton setEnabled:NO];
-    } else {
+    
+    if (self.prevCount > 2) {
         [self.nextDateButton setEnabled:YES];
+    } else {
+        [self.nextDateButton setEnabled:NO];
     }
     
 
@@ -139,7 +155,13 @@
 - (void) updateClearlyWeather {
 
     self.tempDifferenceLabel.text = [self generateTempDescription];
+    [self.tempDifferenceLabel setFont:[UIFont fontWithName:@"GillSans-Light" size:20]];
+    [self.tempDifferenceLabel setTextColor:[UIColor whiteColor]];
+
     self.windDifferenceLabel.text = [self generateWindDescription];
+    [self.windDifferenceLabel setFont:[UIFont fontWithName:@"GillSans-Light" size:20]];
+    [self.windDifferenceLabel setTextColor:[UIColor whiteColor]];
+
 
 }
 
@@ -161,7 +183,8 @@
 }
 
 - (NSString *) generateDateDesc {
-    NSString *yesterdayString = [self dateToString: [self prevDateByNumDays:-5]];
+    NSString *yesterdayString = [self dateToString: [self prevDateByNumDays:-2]];
+    NSLog(@"Yesteday string in gen: %@", yesterdayString);
     NSString *dateDesc;
     if ([[self dateToString:self.prevDate] isEqualToString:yesterdayString] ) {
         dateDesc = @"yesterday";
@@ -200,7 +223,7 @@
 }
 
 - (void) fetchTodayWeather {
-    NSDate *today = [self prevDateByNumDays:-2];
+    NSDate *today = [self prevDateByNumDays:-1];
     
 
     
@@ -212,8 +235,8 @@
 - (void) fetchPrevWeather:(NSDate *)prevDate {
     
     self.prevDate = prevDate;
-    
     NSString *prevString = [self dateToString:self.prevDate];
+    NSLog(@"printing prev fetch string: %@", prevString);
     self.prevWeather = [WeatherUndergroundAPI getPastDate:prevString withZipCode:self.placemark.postalCode];
 }
 
